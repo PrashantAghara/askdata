@@ -22,12 +22,20 @@ agent = [
   "langchain-core",
   "sqlglot",
   "groq",
+  "langchain-huggingface>=1.2.2",
 ]
 ml = ["mem0ai", "sentence-transformers"]
 engines = ["pymongo", "neo4j", "cassandra-driver", "elasticsearch", "pymysql", "pyodbc"]
 
 [dependency-groups]
-dev = ["pytest>=8", "pytest-asyncio>=0.23", "ruff", "mypy"]
+dev = [
+    "pytest>=8",
+    "pytest-asyncio>=0.23",
+    "ruff",
+    "mypy",
+    "ipykernel>=7.4.0",
+    "pandas>=3.0.6",
+]
 
 [build-system]
 requires = ["setuptools>=68"]
