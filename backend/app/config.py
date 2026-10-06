@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     fernet_key: str = ""
     llm_cache_dir: str = str(BACKEND_DIR / ".cache" / "llm")
     mem0_api_key: str = ""
+    demo_database_url: str = ""
 
 
 @lru_cache

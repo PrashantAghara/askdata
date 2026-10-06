@@ -35,6 +35,7 @@ dev = [
     "mypy",
     "ipykernel>=7.4.0",
     "pandas>=3.0.6",
+    "faker>=40.41.0",
 ]
 
 [build-system]
