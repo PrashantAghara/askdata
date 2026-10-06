@@ -1,5 +1,5 @@
 import random
-from datetime import date, datetime, timedelta, timezone
+from datetime import UTC, date, datetime, timedelta
 from decimal import Decimal
 from pathlib import Path
 
@@ -14,8 +14,8 @@ SEED = 42
 N_CUSTOMERS = 500
 N_PRODUCTS = 120
 N_ORDERS = 3000
-START = datetime(2025, 1, 1, tzinfo=timezone.utc)
-END = datetime(2026, 9, 30, tzinfo=timezone.utc)
+START = datetime(2025, 1, 1, tzinfo=UTC)
+END = datetime(2026, 9, 30, tzinfo=UTC)
 HERE = Path(__file__).parent
 
 random.seed(SEED)
@@ -104,7 +104,7 @@ def build_data():
     item_id = pay_id = rev_id = 0
     for oid in range(1, N_ORDERS + 1):
         cust = random.choices(customers, weights=weights)[0]
-        signup_dt = datetime.combine(cust[6], datetime.min.time(), tzinfo=timezone.utc)
+        signup_dt = datetime.combine(cust[6], datetime.min.time(), tzinfo=UTC)
         odt = rand_dt(max(START, signup_dt), END)
 
         if (END - odt).days < 10:
@@ -113,7 +113,7 @@ def build_data():
             status = random.choices("DCR", weights=[80, 12, 8])[0]
 
         n_items = random.choices([1, 2, 3, 4, 5], weights=[40, 30, 15, 10, 5])[0]
-        total = Decimal("0")
+        total = Decimal(0)
         order_products = []
         for p in random.sample(products, n_items):
             item_id += 1
