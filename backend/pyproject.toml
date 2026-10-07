@@ -23,6 +23,8 @@ agent = [
   "sqlglot",
   "groq",
   "langchain-huggingface>=1.2.2",
+  "rank-bm25>=0.2.2",
+  "snowballstemmer>=3.1.1",
 ]
 ml = ["mem0ai", "sentence-transformers"]
 engines = ["pymongo", "neo4j", "cassandra-driver", "elasticsearch", "pymysql", "pyodbc"]
